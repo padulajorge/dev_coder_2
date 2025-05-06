@@ -7,9 +7,11 @@ Public Class VentanaJuego
     Private acumulador As Integer = 0 ' Índice acumulativo para mostrar los segmentos
     Private WithEvents codigoTimer As New Timer(333) ' Temporizador de 1 segundo
     Private WithEvents guardarTimer As New Timer(60000) ' Temporizador de 1 minuto para guardar datos
+    Private WithEvents tiempoJugadoTimer As New Timer(1000) ' Temporizador de 1 segundo para el tiempo jugado
     Private errorDeCompilacion As Boolean = False ' Estado de error de compilación
     Private segmentosDesordenados As New List(Of String) ' Lista para almacenar los segmentos desordenados
     Private segmentosOrdenados As New List(Of String) ' Lista para almacenar el orden correcto
+    Private mejorasCompradasTotal As Integer = 0 ' Contador de mejoras compradas en total
 
     ' Colores para formatear el código
     Private colorPalabrasClave As Color = Color.Blue
@@ -118,15 +120,21 @@ Public Class VentanaJuego
         ConfigurarRichTextBox()
         ConfigurarDataGridView()
         ConfigurarConsola()
+        ConfigurarTreeView()
+        ConfigurarBotones()
         MejorasGlobales()
         InicializarTreeView()
         CargarCodigo(codigoNivel)
+        
+        ' Inicializar el contador de mejoras totales con el valor actual del usuario
+        mejorasCompradasTotal = Globales.usuarioActual.getMejorasTotales()
         
         ' Configurar el temporizador para que se ejecute en el hilo de la UI
         AddHandler codigoTimer.Elapsed, AddressOf ActualizarCodigo
         codigoTimer.Start()
         
         guardarTimer.Start() ' Iniciar el temporizador de guardado
+        tiempoJugadoTimer.Start() ' Iniciar el temporizador de tiempo jugado
 
         ' Deshabilitar el botón de compilación inicialmente
         compilarBtn.Enabled = False
@@ -139,6 +147,7 @@ Public Class VentanaJuego
         ' Detener los temporizadores
         codigoTimer.Stop()
         guardarTimer.Stop()
+        tiempoJugadoTimer.Stop()
 
         ' Guardar datos antes de cerrar
         GuardarDatosEnBaseDeDatos()
@@ -147,6 +156,16 @@ Public Class VentanaJuego
     Private Sub guardarTimer_Elapsed(sender As Object, e As ElapsedEventArgs) Handles guardarTimer.Elapsed
         ' Guardar datos cada minuto
         GuardarDatosEnBaseDeDatos()
+    End Sub
+
+    Private Sub tiempoJugadoTimer_Elapsed(sender As Object, e As ElapsedEventArgs) Handles tiempoJugadoTimer.Elapsed
+        ' Incrementar el tiempo jugado cada segundo
+        Globales.usuarioActual.setTiempoJugado(Globales.usuarioActual.getTiempoJugado() + 1)
+        
+        ' Actualizar el TreeView con el tiempo jugado
+        Me.BeginInvoke(Sub()
+            ActualizarTiempoJugadoTreeView()
+        End Sub)
     End Sub
 
     Private Sub ConfigurarRichTextBox()
@@ -201,16 +220,51 @@ Public Class VentanaJuego
         consolaTextBox.WordWrap = True
     End Sub
 
+    Private Sub ConfigurarTreeView()
+        ' Configurar la fuente del TreeView
+        TreeView1.Font = New Font("Consolas", 11, FontStyle.Regular)
+        TreeView1.BackColor = Color.White
+        TreeView1.BorderStyle = BorderStyle.Fixed3D
+    End Sub
+
+    Private Sub ConfigurarBotones()
+        ' Configurar la fuente de todos los botones
+        Dim fuenteBotones As New Font("Consolas", 11, FontStyle.Regular)
+        
+        encapsulamientoBtn.Font = fuenteBotones
+        clasesBtn.Font = fuenteBotones
+        herenciaBtn.Font = fuenteBotones
+        agregacionBtn.Font = fuenteBotones
+        asociacionBtn.Font = fuenteBotones
+        polimorfismoBtn.Font = fuenteBotones
+        compilarBtn.Font = fuenteBotones
+    End Sub
+
     Private Sub InicializarTreeView()
         TreeView1.Nodes.Clear()
 
+        ' Determinar el lenguaje actual basado en el prestigio
+        Dim lenguajeActual As String = "Java"
+        Select Case Globales.usuarioActual.getPrestigio()
+            Case 1
+                lenguajeActual = "Java"
+            Case 2
+                lenguajeActual = "C++"
+            Case Else
+                lenguajeActual = "Ninguno"
+        End Select
+
         ' Nodo raíz
-        Dim nodoRaiz As New TreeNode("Proyecto POO")
+        Dim nodoRaiz As New TreeNode($"Proyecto POO - {lenguajeActual}")
         TreeView1.Nodes.Add(nodoRaiz)
 
         ' Nodo para los bits del jugador
         Dim nodoBits As New TreeNode($"Bits: {Globales.usuarioActual.getBits()}")
         nodoRaiz.Nodes.Add(nodoBits)
+
+        ' Nodo para el tiempo jugado
+        Dim nodoTiempo As New TreeNode($"Tiempo jugado: 00:00:00")
+        nodoRaiz.Nodes.Add(nodoTiempo)
 
         ' Agrupar mejoras por tipo
         Dim mejorasPorTipo = Globales.mejorasActuales.GroupBy(Function(m) m.getTipo)
@@ -238,6 +292,18 @@ Public Class VentanaJuego
         If TreeView1.Nodes.Count > 0 AndAlso TreeView1.Nodes(0).Nodes.Count > 0 Then
             Dim nodoBits As TreeNode = TreeView1.Nodes(0).Nodes(0)
             nodoBits.Text = $"Bits: {Globales.usuarioActual.getBits()}"
+        End If
+    End Sub
+
+    Private Sub ActualizarTiempoJugadoTreeView()
+        ' Buscar el nodo de tiempo jugado
+        If TreeView1.Nodes.Count > 0 AndAlso TreeView1.Nodes(0).Nodes.Count > 1 Then
+            Dim nodoTiempo As TreeNode = TreeView1.Nodes(0).Nodes(1)
+            Dim tiempoTotal As Integer = Globales.usuarioActual.getTiempoJugado()
+            Dim horas As Integer = tiempoTotal \ 3600
+            Dim minutos As Integer = (tiempoTotal Mod 3600) \ 60
+            Dim segundos As Integer = tiempoTotal Mod 60
+            nodoTiempo.Text = $"Tiempo jugado: {horas:D2}:{minutos:D2}:{segundos:D2}"
         End If
     End Sub
 
@@ -313,7 +379,7 @@ Public Class VentanaJuego
             Else
                 ' Verificar probabilidad de error (20%)
                 Dim rnd As New Random()
-                If rnd.Next(1, 101) <= 20 Then
+                If rnd.Next(1, 101) <= 2 Then
                     Me.BeginInvoke(Sub() SimularErrorCompilacion())
                 Else
                     ' Reinicia el proceso si no hay error
@@ -868,6 +934,9 @@ Public Class VentanaJuego
                     mejoraActual.setNivel(mejoraActual.getNivel() + nivelesComprados)
                     mejoraActual.setCosto(costoActual) ' Guardar el costo actual para la próxima compra
                     
+                    ' Incrementar el contador de mejoras totales
+                    mejorasCompradasTotal += nivelesComprados
+                    
                     ' Actualizar TreeView inmediatamente
                     ActualizarTreeViewMejora(mejoraActual)
                     
@@ -882,6 +951,9 @@ Public Class VentanaJuego
                     ' Sumar los nuevos niveles a los existentes
                     mejoraActual.setNivel(mejoraActual.getNivel() + nivelesComprados)
                     mejoraActual.setCosto(10) ' Precio inicial de Clases
+                    
+                    ' Incrementar el contador de mejoras totales
+                    mejorasCompradasTotal += nivelesComprados
                     
                     ' Reducir niveles de Encapsulamiento
                     mejoraEncapsulamiento.setNivel(0)
@@ -901,6 +973,9 @@ Public Class VentanaJuego
                     mejoraActual.setNivel(mejoraActual.getNivel() + nivelesComprados)
                     mejoraActual.setCosto(10) ' Precio inicial de Herencia
                     
+                    ' Incrementar el contador de mejoras totales
+                    mejorasCompradasTotal += nivelesComprados
+                    
                     ' Reducir niveles de Clases
                     mejoraClases.setNivel(0)
                     mejoraClases.setCosto(10) ' Resetear al precio inicial
@@ -918,6 +993,9 @@ Public Class VentanaJuego
                     ' Sumar los nuevos niveles a los existentes
                     mejoraActual.setNivel(mejoraActual.getNivel() + nivelesComprados)
                     mejoraActual.setCosto(10) ' Precio inicial de Agregación
+                    
+                    ' Incrementar el contador de mejoras totales
+                    mejorasCompradasTotal += nivelesComprados
                     
                     ' Reducir niveles de Herencia
                     mejoraHerencia.setNivel(0)
@@ -937,6 +1015,9 @@ Public Class VentanaJuego
                     mejoraActual.setNivel(mejoraActual.getNivel() + nivelesComprados)
                     mejoraActual.setCosto(10) ' Precio inicial de Asociación
                     
+                    ' Incrementar el contador de mejoras totales
+                    mejorasCompradasTotal += nivelesComprados
+                    
                     ' Reducir niveles de Agregación
                     mejoraAgregacion.setNivel(0)
                     mejoraAgregacion.setCosto(10) ' Resetear al precio inicial
@@ -945,6 +1026,9 @@ Public Class VentanaJuego
                     ActualizarTreeViewMejora(mejoraActual)
                     ActualizarTreeViewMejora(mejoraAgregacion)
             End Select
+
+            ' Actualizar el total de mejoras en el usuario
+            Globales.usuarioActual.setMejorasTotales(mejorasCompradasTotal)
 
             ' Asignar el nivel de código según la mejora comprada
             If nivelesComprados > 0 Then
@@ -1002,11 +1086,13 @@ Public Class VentanaJuego
             Dim conn As MySqlConnection = Globales.conexion.Abrir()
             
             ' Actualizar datos del usuario
-            Dim queryUsuario As String = "UPDATE estadisticas SET prestigio_lenguaje = @prestigio, bits = @bits, codigo_nivel = @codigo_nivel WHERE jugador_estadistica_id = @id"
+            Dim queryUsuario As String = "UPDATE estadisticas SET prestigio_lenguaje = @prestigio, bits = @bits, codigo_nivel = @codigo_nivel, tiempo_jugado = @tiempo_jugado, mejoras_totales = @mejoras_totales WHERE jugador_estadistica_id = @id"
             Dim cmdUsuario As MySqlCommand = New MySqlCommand(queryUsuario, conn)
             cmdUsuario.Parameters.AddWithValue("@prestigio", Globales.usuarioActual.getPrestigio())
             cmdUsuario.Parameters.AddWithValue("@bits", Globales.usuarioActual.getBits())
             cmdUsuario.Parameters.AddWithValue("@codigo_nivel", Globales.usuarioActual.getCodigoNivel())
+            cmdUsuario.Parameters.AddWithValue("@tiempo_jugado", Globales.usuarioActual.getTiempoJugado())
+            cmdUsuario.Parameters.AddWithValue("@mejoras_totales", Globales.usuarioActual.getMejorasTotales())
             cmdUsuario.Parameters.AddWithValue("@id", Globales.usuarioActual.getId())
             cmdUsuario.ExecuteNonQuery()
 
@@ -1079,11 +1165,38 @@ Public Class VentanaJuego
             ' Detener el temporizador para evitar mensajes repetidos
             codigoTimer.Stop()
 
-            ' Manejar el overflow
-            MessageBox.Show("¡Felicidades! Has alcanzado el máximo nivel en este lenguaje. Avanzando al siguiente nivel de prestigio...", 
-                          "Prestigio alcanzado", 
-                          MessageBoxButtons.OK, 
-                          MessageBoxIcon.Information)
+            ' Obtener el lenguaje actual y el siguiente
+            Dim lenguajeActual As String = ""
+            Dim siguienteLenguaje As String = ""
+            Select Case Globales.usuarioActual.getPrestigio()
+                Case 1
+                    lenguajeActual = "Java"
+                    siguienteLenguaje = "C++"
+                Case 2
+                    lenguajeActual = "C++"
+                    siguienteLenguaje = "Ninguno"
+                Case Else
+                    lenguajeActual = "Ninguno"
+                    siguienteLenguaje = "Ninguno"
+            End Select
+
+            ' Formatear el tiempo jugado
+            Dim tiempoTotal As Integer = Globales.usuarioActual.getTiempoJugado()
+            Dim horas As Integer = tiempoTotal \ 3600
+            Dim minutos As Integer = (tiempoTotal Mod 3600) \ 60
+            Dim segundos As Integer = tiempoTotal Mod 60
+            Dim tiempoFormateado As String = $"{horas:D2}:{minutos:D2}:{segundos:D2}"
+
+            ' Mostrar mensaje único con toda la información
+            MessageBox.Show(
+                $"¡Felicidades! Has completado el lenguaje {lenguajeActual} y avanzado al siguiente nivel de prestigio." & vbCrLf & vbCrLf &
+                $"Próximo lenguaje: {siguienteLenguaje}" & vbCrLf &
+                $"Mejoras totales adquiridas: {mejorasCompradasTotal}" & vbCrLf &
+                $"Tiempo jugado: {tiempoFormateado}",
+                "¡Nuevo Prestigio Alcanzado!",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information
+            )
 
             ' Reiniciar todos los niveles de mejoras
             For Each mejora In Globales.mejorasActuales
@@ -1108,12 +1221,6 @@ Public Class VentanaJuego
             InicializarTreeView()
             CargarCodigo(0)
             ActualizarBotonesMejoras()
-
-            ' Mostrar mensaje de nuevo prestigio
-            MessageBox.Show($"¡Has alcanzado el prestigio {Globales.usuarioActual.getPrestigio()}! Comenzando una nueva etapa...", 
-                          "Nuevo Prestigio", 
-                          MessageBoxButtons.OK, 
-                          MessageBoxIcon.Information)
 
             ' Reiniciar el temporizador después de todo el proceso
             codigoTimer.Start()

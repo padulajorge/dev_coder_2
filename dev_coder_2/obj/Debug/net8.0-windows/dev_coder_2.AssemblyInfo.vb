@@ -16,7 +16,7 @@ Imports System.Reflection
 <Assembly: System.Reflection.AssemblyCompanyAttribute("dev_coder_2"),  _
  Assembly: System.Reflection.AssemblyConfigurationAttribute("Debug"),  _
  Assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0"),  _
- Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+46ce4288a371c6312a81fb0d45b1b14c596688b4"),  _
+ Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a1ba87d7e68b9360c2943055b97ea36884c3f18d"),  _
  Assembly: System.Reflection.AssemblyProductAttribute("dev_coder_2"),  _
  Assembly: System.Reflection.AssemblyTitleAttribute("dev_coder_2"),  _
  Assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0"),  _

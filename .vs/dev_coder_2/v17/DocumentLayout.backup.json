@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\old hdd\\UNIVERSIDAD\\PROGRAMACION_2\\trabajo_final\\dev_coder_2\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{8E52CFFB-364C-492F-B98F-1D29B5DC5EAB}|dev_coder_2\\dev_coder_2.vbproj|d:\\old hdd\\universidad\\programacion_2\\trabajo_final\\dev_coder_2\\dev_coder_2\\form1.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{8E52CFFB-364C-492F-B98F-1D29B5DC5EAB}|dev_coder_2\\dev_coder_2.vbproj|solutionrelative:dev_coder_2\\form1.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8E52CFFB-364C-492F-B98F-1D29B5DC5EAB}|dev_coder_2\\dev_coder_2.vbproj|d:\\old hdd\\universidad\\programacion_2\\trabajo_final\\dev_coder_2\\dev_coder_2\\ventanajuego.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
       "RelativeMoniker": "D:0:0:{8E52CFFB-364C-492F-B98F-1D29B5DC5EAB}|dev_coder_2\\dev_coder_2.vbproj|solutionrelative:dev_coder_2\\ventanajuego.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
     }
@@ -14,18 +18,30 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "VentanaJuego.vb [Dise\u00F1o]",
               "DocumentMoniker": "D:\\old hdd\\UNIVERSIDAD\\PROGRAMACION_2\\trabajo_final\\dev_coder_2\\dev_coder_2\\VentanaJuego.vb",
               "RelativeDocumentMoniker": "dev_coder_2\\VentanaJuego.vb",
               "ToolTip": "D:\\old hdd\\UNIVERSIDAD\\PROGRAMACION_2\\trabajo_final\\dev_coder_2\\dev_coder_2\\VentanaJuego.vb [Dise\u00F1o]",
               "RelativeToolTip": "dev_coder_2\\VentanaJuego.vb [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-05-04T01:46:03.602Z",
+              "WhenOpened": "2025-05-06T02:07:12.024Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.vb [Dise\u00F1o]",
+              "DocumentMoniker": "D:\\old hdd\\UNIVERSIDAD\\PROGRAMACION_2\\trabajo_final\\dev_coder_2\\dev_coder_2\\Form1.vb",
+              "RelativeDocumentMoniker": "dev_coder_2\\Form1.vb",
+              "ToolTip": "D:\\old hdd\\UNIVERSIDAD\\PROGRAMACION_2\\trabajo_final\\dev_coder_2\\dev_coder_2\\Form1.vb [Dise\u00F1o]",
+              "RelativeToolTip": "dev_coder_2\\Form1.vb [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-05-06T01:45:42.902Z",
               "EditorCaption": " [Dise\u00F1o]"
             }
           ]

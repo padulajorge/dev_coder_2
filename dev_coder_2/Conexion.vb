@@ -4,7 +4,7 @@ Public Class Conexion
     Private conexion As MySqlConnection
 
     ' Cambia los datos según tu configuración
-    Private cadenaConexion As String = "server=localhost;user=root;password=contraseña;database=dev"
+    Private cadenaConexion As String = "server=localhost;user=root;password=ar2759kantos;database=dev"
 
     ' Constructor
     Public Sub New()

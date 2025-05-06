@@ -21,3 +21,4 @@ D:\old hdd\UNIVERSIDAD\PROGRAMACION_2\trabajo_final\dev_coder_2\dev_coder_2\bin\
 D:\old hdd\UNIVERSIDAD\PROGRAMACION_2\trabajo_final\dev_coder_2\dev_coder_2\obj\Debug\net8.0-windows\dev_coder_2.vbproj.AssemblyReference.cache
 D:\old hdd\UNIVERSIDAD\PROGRAMACION_2\trabajo_final\dev_coder_2\dev_coder_2\obj\Debug\net8.0-windows\dev_code.04E7905C.Up2Date
 D:\old hdd\UNIVERSIDAD\PROGRAMACION_2\trabajo_final\dev_coder_2\dev_coder_2\obj\Debug\net8.0-windows\dev_coder_2.VentanaJuego.resources
+D:\old hdd\UNIVERSIDAD\PROGRAMACION_2\trabajo_final\dev_coder_2\dev_coder_2\obj\Debug\net8.0-windows\dev_coder_2.Resources.resources
