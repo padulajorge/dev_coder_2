@@ -1,14 +1,26 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\old hdd\\UNIVERSIDAD\\PROGRAMACION_2\\trabajo_final\\dev_coder_2\\",
+  "WorkspaceRootPath": "C:\\Users\\Nano\\OneDrive\\Documentos\\UNLaR\\3ero\\ProgramacionII\\trabajo_final\\dev_coder_2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8E52CFFB-364C-492F-B98F-1D29B5DC5EAB}|dev_coder_2\\dev_coder_2.vbproj|d:\\old hdd\\universidad\\programacion_2\\trabajo_final\\dev_coder_2\\dev_coder_2\\form1.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
-      "RelativeMoniker": "D:0:0:{8E52CFFB-364C-492F-B98F-1D29B5DC5EAB}|dev_coder_2\\dev_coder_2.vbproj|solutionrelative:dev_coder_2\\form1.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Nano\\OneDrive\\Documentos\\UNLaR\\3ero\\ProgramacionII\\trabajo_final\\dev_coder_2\\dev_coder_2\\Form1.Designer.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:dev_coder_2\\Form1.Designer.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8E52CFFB-364C-492F-B98F-1D29B5DC5EAB}|dev_coder_2\\dev_coder_2.vbproj|d:\\old hdd\\universidad\\programacion_2\\trabajo_final\\dev_coder_2\\dev_coder_2\\ventanajuego.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
-      "RelativeMoniker": "D:0:0:{8E52CFFB-364C-492F-B98F-1D29B5DC5EAB}|dev_coder_2\\dev_coder_2.vbproj|solutionrelative:dev_coder_2\\ventanajuego.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Nano\\OneDrive\\Documentos\\UNLaR\\3ero\\ProgramacionII\\trabajo_final\\dev_coder_2\\dev_coder_2\\Form1.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:dev_coder_2\\Form1.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Nano\\OneDrive\\Documentos\\UNLaR\\3ero\\ProgramacionII\\trabajo_final\\dev_coder_2\\dev_coder_2\\VentanaJuego.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:dev_coder_2\\VentanaJuego.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Nano\\OneDrive\\Documentos\\UNLaR\\3ero\\ProgramacionII\\trabajo_final\\dev_coder_2\\dev_coder_2\\Globales.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:dev_coder_2\\Globales.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Nano\\OneDrive\\Documentos\\UNLaR\\3ero\\ProgramacionII\\trabajo_final\\dev_coder_2\\dev_coder_2\\Conexion.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:dev_coder_2\\Conexion.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,31 +30,76 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "VentanaJuego.vb [Dise\u00F1o]",
-              "DocumentMoniker": "D:\\old hdd\\UNIVERSIDAD\\PROGRAMACION_2\\trabajo_final\\dev_coder_2\\dev_coder_2\\VentanaJuego.vb",
-              "RelativeDocumentMoniker": "dev_coder_2\\VentanaJuego.vb",
-              "ToolTip": "D:\\old hdd\\UNIVERSIDAD\\PROGRAMACION_2\\trabajo_final\\dev_coder_2\\dev_coder_2\\VentanaJuego.vb [Dise\u00F1o]",
-              "RelativeToolTip": "dev_coder_2\\VentanaJuego.vb [Dise\u00F1o]",
+              "DocumentIndex": 0,
+              "Title": "Form1.Designer.vb",
+              "DocumentMoniker": "C:\\Users\\Nano\\OneDrive\\Documentos\\UNLaR\\3ero\\ProgramacionII\\trabajo_final\\dev_coder_2\\dev_coder_2\\Form1.Designer.vb",
+              "RelativeDocumentMoniker": "dev_coder_2\\Form1.Designer.vb",
+              "ToolTip": "C:\\Users\\Nano\\OneDrive\\Documentos\\UNLaR\\3ero\\ProgramacionII\\trabajo_final\\dev_coder_2\\dev_coder_2\\Form1.Designer.vb",
+              "RelativeToolTip": "dev_coder_2\\Form1.Designer.vb",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-05-06T02:07:12.024Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2025-05-18T00:06:13.129Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Form1.vb [Dise\u00F1o]",
-              "DocumentMoniker": "D:\\old hdd\\UNIVERSIDAD\\PROGRAMACION_2\\trabajo_final\\dev_coder_2\\dev_coder_2\\Form1.vb",
+              "DocumentIndex": 1,
+              "Title": "Form1.vb",
+              "DocumentMoniker": "C:\\Users\\Nano\\OneDrive\\Documentos\\UNLaR\\3ero\\ProgramacionII\\trabajo_final\\dev_coder_2\\dev_coder_2\\Form1.vb",
               "RelativeDocumentMoniker": "dev_coder_2\\Form1.vb",
-              "ToolTip": "D:\\old hdd\\UNIVERSIDAD\\PROGRAMACION_2\\trabajo_final\\dev_coder_2\\dev_coder_2\\Form1.vb [Dise\u00F1o]",
-              "RelativeToolTip": "dev_coder_2\\Form1.vb [Dise\u00F1o]",
+              "ToolTip": "C:\\Users\\Nano\\OneDrive\\Documentos\\UNLaR\\3ero\\ProgramacionII\\trabajo_final\\dev_coder_2\\dev_coder_2\\Form1.vb",
+              "RelativeToolTip": "dev_coder_2\\Form1.vb",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADsAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-05-06T01:45:42.902Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2025-05-18T00:02:38.089Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "VentanaJuego.vb",
+              "DocumentMoniker": "C:\\Users\\Nano\\OneDrive\\Documentos\\UNLaR\\3ero\\ProgramacionII\\trabajo_final\\dev_coder_2\\dev_coder_2\\VentanaJuego.vb",
+              "RelativeDocumentMoniker": "dev_coder_2\\VentanaJuego.vb",
+              "ToolTip": "C:\\Users\\Nano\\OneDrive\\Documentos\\UNLaR\\3ero\\ProgramacionII\\trabajo_final\\dev_coder_2\\dev_coder_2\\VentanaJuego.vb",
+              "RelativeToolTip": "dev_coder_2\\VentanaJuego.vb",
+              "ViewState": "AgIAACcDAAAAAAAAAADgv08DAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-05-17T23:54:00.795Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Conexion.vb",
+              "DocumentMoniker": "C:\\Users\\Nano\\OneDrive\\Documentos\\UNLaR\\3ero\\ProgramacionII\\trabajo_final\\dev_coder_2\\dev_coder_2\\Conexion.vb",
+              "RelativeDocumentMoniker": "dev_coder_2\\Conexion.vb",
+              "ToolTip": "C:\\Users\\Nano\\OneDrive\\Documentos\\UNLaR\\3ero\\ProgramacionII\\trabajo_final\\dev_coder_2\\dev_coder_2\\Conexion.vb",
+              "RelativeToolTip": "dev_coder_2\\Conexion.vb",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-05-17T23:53:14.57Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Globales.vb",
+              "DocumentMoniker": "C:\\Users\\Nano\\OneDrive\\Documentos\\UNLaR\\3ero\\ProgramacionII\\trabajo_final\\dev_coder_2\\dev_coder_2\\Globales.vb",
+              "RelativeDocumentMoniker": "dev_coder_2\\Globales.vb",
+              "ToolTip": "C:\\Users\\Nano\\OneDrive\\Documentos\\UNLaR\\3ero\\ProgramacionII\\trabajo_final\\dev_coder_2\\dev_coder_2\\Globales.vb",
+              "RelativeToolTip": "dev_coder_2\\Globales.vb",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-05-15T23:01:45.331Z",
+              "EditorCaption": ""
             }
           ]
         }
